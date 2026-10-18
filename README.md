@@ -1,13 +1,19 @@
 
 # Real-Time Customer 360 Lakehouse
 
+### End-to-End Data Engineering | CDC | Kafka | PySpark | Delta Lake | Databricks
+
 ## Target Architecture
 
-![Customer 360 Architecture](docs/architecture.png)
+![Customer 360 Architecture](realtime-customer-360-lakehouse/docs/architecture.png)
 
 ## Project Overview
 
+The **Real-Time Customer 360 Lakehouse** is a data engineering project designed to integrate customer information from multiple operational systems into a unified, analytics-ready customer view.
 
+The target architecture combines real-time Change Data Capture (CDC), event-driven ingestion, distributed stream processing, and Delta Lake Medallion Architecture to support scalable and reliable customer data processing.
+
+The project focuses on designing reusable data pipelines with strong data quality, incremental processing, fault tolerance, and observability.
 
 **Status: Working local CDC prototype; Kafka, Spark, Delta Lake, Databricks and Airflow integrations are planned.**
 
