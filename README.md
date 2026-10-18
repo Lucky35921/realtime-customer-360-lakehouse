@@ -1,13 +1,12 @@
+
 # Real-Time Customer 360 Lakehouse
 
 ## Target Architecture
 
-![Real-Time Customer 360 Architecture](docs/architecture.png)
+![Customer 360 Architecture](docs/architecture.png)
 
 ## Project Overview
 
-A real-time data engineering lakehouse designed using
-Apache Kafka, PySpark, Delta Lake, and Databricks.
 
 
 **Status: Working local CDC prototype; Kafka, Spark, Delta Lake, Databricks and Airflow integrations are planned.**
