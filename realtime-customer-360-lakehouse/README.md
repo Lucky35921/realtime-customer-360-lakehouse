@@ -1,5 +1,15 @@
 # Real-Time Customer 360 Lakehouse
 
+## Target Architecture
+
+![Real-Time Customer 360 Architecture](docs/architecture.png)
+
+## Project Overview
+
+A real-time data engineering lakehouse designed using
+Apache Kafka, PySpark, Delta Lake, and Databricks.
+
+
 **Status: Working local CDC prototype; Kafka, Spark, Delta Lake, Databricks and Airflow integrations are planned.**
 
 An independent Customer 360 project using **synthetic CRM customer events** (not NYC Taxi data). Demonstrates change-data-capture upserts, deduplication, late-event protection, data-quality quarantine, and a customer 360 current-state table.
