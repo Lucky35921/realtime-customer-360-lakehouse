@@ -1,0 +1,5 @@
+{"transaction_id":"t1","account_id":"A1","amount":25.00,"event_time":"2026-10-01T10:00:00Z","merchant":"Grocery"}
+{"transaction_id":"t2","account_id":"A1","amount":40.00,"event_time":"2026-10-01T10:01:00Z","merchant":"Cafe"}
+{"transaction_id":"t3","account_id":"A1","amount":65.00,"event_time":"2026-10-01T10:02:00Z","merchant":"Retail"}
+{"transaction_id":"t4","account_id":"A2","amount":6500.00,"event_time":"2026-10-01T10:03:00Z","merchant":"Electronics"}
+{"transaction_id":"t5","account_id":"A3","amount":-2.00,"event_time":"2026-10-01T10:04:00Z","merchant":"Invalid"}

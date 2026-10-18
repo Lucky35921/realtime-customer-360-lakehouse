@@ -1,0 +1,20 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#071322", pad="0.40", nodesep="0.35", ranksep="0.55", splines=polyline, fontname="Helvetica", label="Streaming Fraud Analytics Platform\nEvent-Driven Fraud Detection Architecture", labelloc=t, fontsize=23, fontcolor="#F3F7FF", labeljust=l];
+node [shape=box, style="rounded,filled", color="#3D5B77", fillcolor="#122338", fontcolor="#EAF2FF", fontname="Helvetica", fontsize=11, penwidth=1.4, margin="0.20,0.18"];
+edge [color="#36D6C4", penwidth=2.1, arrowsize=0.75];
+sources [label=<<FONT COLOR="#61E5D4"><B>EVENT SOURCES</B></FONT><BR/><BR/>Payment transactions<BR/>Synthetic card events>];
+kafka [label=<<FONT COLOR="#61E5D4"><B>MESSAGE BROKER</B></FONT><BR/><BR/>Kafka / Amazon MSK<BR/>Partitioned event topics>];
+spark [label=<<FONT COLOR="#61E5D4"><B>STREAM PROCESSING</B></FONT><BR/><BR/>Spark Structured Streaming<BR/>Watermarks + dedup<BR/>Windowed velocity features>];
+rules [label=<<FONT COLOR="#61E5D4"><B>FRAUD SCORING</B></FONT><BR/><BR/>High-value rules<BR/>Velocity alerts<BR/>Risk enrichment>];
+lake [label=<<FONT COLOR="#61E5D4"><B>DATA LAKE</B></FONT><BR/><BR/>Amazon S3 · Parquet<BR/>AWS Glue Data Catalog>];
+serve [label=<<FONT COLOR="#61E5D4"><B>ANALYTICS</B></FONT><BR/><BR/>Amazon Redshift<BR/>Fraud dashboards / alerts>];
+sources -> kafka;
+kafka -> spark;
+spark -> rules;
+rules -> lake;
+lake -> serve;
+dlq [label=<<FONT COLOR="#F4C975"><B>ERROR HANDLING</B></FONT><BR/><BR/>Invalid events / DLQ<BR/>Replay + recovery>, fillcolor="#20283B", color="#887653"];
+spark -> dlq [style=dashed, color="#F4C975", constraint=false, arrowhead=none];
+observe [label=<<FONT COLOR="#F4C975"><B>OBSERVABILITY</B></FONT><BR/><BR/>Checkpoints + metrics<BR/>CloudWatch-style alerts>, fillcolor="#20283B", color="#887653"];
+rules -> observe [style=dashed, color="#F4C975", constraint=false, arrowhead=none];
+}

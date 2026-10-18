@@ -1,0 +1,5 @@
+{"event_id":"e1","customer_id":"C101","op":"UPSERT","event_time":"2026-10-01T10:00:00Z","name":"Asha Patel","email":"asha@example.com","city":"Chicago"}
+{"event_id":"e2","customer_id":"C102","op":"UPSERT","event_time":"2026-10-01T10:05:00Z","name":"Daniel Kim","email":"daniel@example.com","city":"Detroit"}
+{"event_id":"e3","customer_id":"C101","op":"UPSERT","event_time":"2026-10-02T09:00:00Z","name":"Asha Patel","email":"asha@example.com","city":"Boston"}
+{"event_id":"e4","customer_id":"C103","op":"UPSERT","event_time":"2026-10-02T09:05:00Z","name":"Bad Email","email":"invalid","city":"Seattle"}
+{"event_id":"e5","customer_id":"C102","op":"DELETE","event_time":"2026-10-03T09:00:00Z"}

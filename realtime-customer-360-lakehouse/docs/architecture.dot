@@ -1,0 +1,20 @@
+digraph G {
+graph [rankdir=LR, bgcolor="#071322", pad="0.40", nodesep="0.35", ranksep="0.55", splines=polyline, fontname="Helvetica", label="Real-Time Customer 360 Lakehouse\nCDC + Lakehouse Architecture", labelloc=t, fontsize=23, fontcolor="#F3F7FF", labeljust=l];
+node [shape=box, style="rounded,filled", color="#3D5B77", fillcolor="#122338", fontcolor="#EAF2FF", fontname="Helvetica", fontsize=11, penwidth=1.4, margin="0.20,0.18"];
+edge [color="#36D6C4", penwidth=2.1, arrowsize=0.75];
+sources [label=<<FONT COLOR="#61E5D4"><B>SOURCE SYSTEMS</B></FONT><BR/><BR/>PostgreSQL CDC<BR/>CRM / REST APIs<BR/>Batch customer files>];
+ingest [label=<<FONT COLOR="#61E5D4"><B>EVENT INGESTION</B></FONT><BR/><BR/>Kafka topics<BR/>Schema registry>];
+bronze [label=<<FONT COLOR="#61E5D4"><B>BRONZE · RAW</B></FONT><BR/><BR/>Delta append-only events<BR/>Ingestion metadata>];
+silver [label=<<FONT COLOR="#61E5D4"><B>SILVER · TRUSTED</B></FONT><BR/><BR/>Spark Structured Streaming<BR/>Dedup + CDC MERGE<BR/>Schema / DQ checks>];
+gold [label=<<FONT COLOR="#61E5D4"><B>GOLD · CURATED</B></FONT><BR/><BR/>Customer 360 profiles<BR/>Current-state dimensions>];
+serve [label=<<FONT COLOR="#61E5D4"><B>SERVING</B></FONT><BR/><BR/>Snowflake / Power BI<BR/>Customer analytics>];
+sources -> ingest;
+ingest -> bronze;
+bronze -> silver;
+silver -> gold;
+gold -> serve;
+quality [label=<<FONT COLOR="#F4C975"><B>DATA QUALITY</B></FONT><BR/><BR/>Invalid-event quarantine<BR/>Late events + replay safety>, fillcolor="#20283B", color="#887653"];
+silver -> quality [style=dashed, color="#F4C975", constraint=false, arrowhead=none];
+ops [label=<<FONT COLOR="#F4C975"><B>ORCHESTRATION</B></FONT><BR/><BR/>Airflow + monitoring<BR/>Checkpoints / SLA alerts>, fillcolor="#20283B", color="#887653"];
+bronze -> ops [style=dashed, color="#F4C975", constraint=false, arrowhead=none];
+}
